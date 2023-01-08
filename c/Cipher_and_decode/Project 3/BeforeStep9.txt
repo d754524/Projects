@@ -1,0 +1,231 @@
+BEFORE STEP 9
+====================================================================================
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct _movienode{
+
+    char title[35];
+    char genre[35];
+    double duration;
+    struct _movienode *next;
+} movieNode;    
+
+movieNode *head=NULL;
+
+
+movieNode* createmovieNode(char *title,char *genre, double duration);
+int insertmovie(movieNode *head, movieNode *newNode, int position);
+void printList(movieNode *head);
+double computeDuration(movieNode *head);
+movieNode *searchByTitle(movieNode *head, char *search);
+movieNode *removemovie(movieNode *head, movieNode *remNode);
+int deletemovie(movieNode *head, movieNode *delNode);
+int getNodePosition(movieNode *head, char *search);
+int savewatchlist(movieNode *head);
+movieNode *loadwatchlist();
+void appendmovie(movieNode *head, movieNode *newNode);
+
+movieNode *createEmptyList();
+void printmovieInfo(movieNode *movie);
+
+
+void main(){                //MAIN METHOD
+
+
+    
+int counter=0;
+int counter2=0;
+
+FILE *fp = fopen("movie_library.txt","r");
+
+if(fp==NULL){
+    printf("Error opening file!");
+    exit(1);
+}
+    createEmptyList();
+
+    movieNode *temp = (movieNode*)calloc(1,sizeof(movieNode));
+
+
+
+    while(fgets(temp->title,25,fp)){
+
+        counter2=0;
+        if(counter>=1){
+        fgets(temp->title,25,fp);       // read title 
+        }
+                                
+        
+            while(temp->title[counter2]!='\0'){
+
+                   if(temp->title[counter2]=='\n'){
+                       temp->title[counter2]='\0';
+                   } 
+
+                counter2++;
+            }
+        counter2=0;
+        fgets(temp->genre,25,fp);    // read genre
+
+            while(temp->genre[counter2]!='\0'){
+
+                   if(temp->genre[counter2]=='\n'){
+                       temp->genre[counter2]='\0';
+                   } 
+
+                counter2++;
+            }
+
+        fscanf(fp,"%lf",&temp->duration);        // read duration
+        
+        
+        // movieNode *ptt= (movieNode*)calloc(5,sizeof(movieNode));
+        movieNode *mn=createmovieNode(temp->title,temp->genre,temp->duration);  //creates a movie node to be added to the linked list
+        // movieNode *nNode =(movieNode*)calloc(1,sizeof(movieNode));
+        // strcpy(nNode->title,"Diego");
+        // strcpy(nNode->genre,"science");
+        // nNode->duration=3.5;
+        // ptt->next=nNode;
+        if(head==NULL){
+            head=mn;
+        }
+        else{
+            appendmovie(head,mn);
+        }
+        
+       
+        counter++;
+       
+        
+    }
+
+    printList(head);
+
+    printf("Duration of the entire list: %.2f",computeDuration(head));
+
+//appendmovie(createEmptyList(),createmovieNode(temp->title,temp->genre,temp->duration));
+
+
+}
+
+
+movieNode  *createmovieNode(char *title, char *genre, double duration){
+
+       //struct _movienode* newNode;
+        movieNode *newNode = (movieNode*)calloc(1,sizeof(movieNode));
+        int counter=0;
+        while(title[counter]!=0){
+          newNode->title[counter]=title[counter];
+          counter++;
+        }
+       
+        counter=0;
+        while(genre[counter]!=0){
+          newNode->genre[counter]=genre[counter];
+          counter++;
+        }
+        
+        newNode->duration=duration;
+
+    return newNode;
+}
+
+int insertmovie(movieNode *head, movieNode *newNode, int position){
+
+int counter=0;
+movieNode *temp = head;
+while(counter<position){
+    temp=temp->next;
+}
+if(temp->next!=NULL){
+
+    newNode->next=temp->next;
+    temp->next=newNode;
+
+}
+else if(temp->next==NULL){
+
+    temp->next=newNode;
+}
+
+
+}
+
+void printmovieInfo(movieNode *movie){
+
+printf("Movie title: %s\nMovie Genre: %s\nDuration of movie: %.2f\n\n",movie->title,movie->genre,movie->duration);
+
+}
+
+movieNode *createEmptyList(){
+
+    head=NULL;
+    return head;
+
+}
+
+void appendmovie(movieNode *head, movieNode *newNode){
+
+
+
+    if(head==NULL){
+        head=newNode;
+    }
+    else{
+
+        movieNode *temp=head;
+
+        while(temp->next!=NULL){
+
+            temp=temp->next;
+            
+        }
+        temp->next=newNode;
+
+    }
+}
+
+void printList(movieNode *head){
+
+
+movieNode *temp = head;
+    while(temp!=NULL){
+        
+        printmovieInfo(temp);
+      temp=temp->next;
+    }
+
+}
+
+double computeDuration(movieNode *head){
+
+int counter =0;
+double sum=0;
+movieNode *temp=head;
+                                            //puts(head[0].title);
+    if(head==NULL){
+        return 0;
+    }
+    if(head->next==NULL){
+        return head->duration;
+    }
+    else
+    sum=sum+head->duration;
+    
+temp=head->next;
+    while(temp!=NULL){
+        
+         sum=sum+(temp->duration);
+        temp=temp->next;
+        
+    }
+    return sum;
+}
+
+
+
+
+

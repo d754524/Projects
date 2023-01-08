@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!-- saved from url=(0133)https://mymasonportal.gmu.edu/bbcswebdav/pid-12955360-dt-content-rid-205770401_1/courses/17369.202110/Project-3-CS262_Spring2021.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    
+    <meta name="Description" content="CS 262 Project 3">
+    <title>Project 3 for CS 262 / Spring 2021</title>
+    <style type="text/css">
+	  body { background-color: #eee; }
+      a { color: #284; }
+      code { color: #284; }
+	  div.code { padding: 1em; padding-top: 0; }
+      .heading { color: #060; font-variant: small-caps; text-align: center; }
+	  .summary { text-align: center; }
+	  .notice { color: #f00; }
+      .heading .l1 { font-size: 2.5em; }
+      .heading .l2 { font-size: 1.5em; }
+      .body { font-size: 1.0em; }
+      .section { font-weight: bold; font-variant: small-caps; }
+      .unspec { font-style: italic; }
+      .name { font-style: italic; }
+      .emph { font-weight: bold; }
+      table.a { width: 100%; border-collapse: collapse; border: thin solid; }
+      table.a td { border-right: thin solid; text-align: center; }
+      table.a tr:nth-child(even) { border-top: thin solid; }
+      table.a tr:nth-child(odd) { background-color: rgba(0,0,0,0.05); }
+      table i { color: #284; }
+      table.b { border-collapse: collapse; 
+          border-top: thin solid; border-bottom: thin solid; }
+      table.b th { border-bottom: thin solid; 
+          padding-right: 2em; padding-left: 2em; }
+      table.b td { text-align: center; }
+	  table.b tr.w { border-top: thin solid; }
+      table.b tr:nth-child(odd) { background-color: rgba(0,0,0,0.05); }
+    </style>
+  </head>
+  <body>
+    <div class="heading">
+      <span class="l1">CS 262, all sections</span><br>
+      <span class="l2">Project 3</span><br>
+      <span class="l2">due Sunday, May 02 at 11:59 PM</span><br>
+      <p>
+    </p></div>
+	<div class="body">
+ 	  <hr>
+<p>In this project you will develope a movie managment system using linked lists. You  already have many of your favorite movies on your computer, but wish to make an easier way to watch  the movie you want, in the order you want. The first step is to come up with a way to create watch lists for your movies. Using the following specifications will get you started on your goal (after which, you can figure out how to actually watch the movies in your watch list.)</p>
+<h3>The Watchlist</h3>
+<p>The watchlist will be implemented using a singly linked list. Each node in the linked list represents a movie, and it has several data members corresponding to various attributes of the movie. Users should be able to create a watchlist, add/remove movies to it, search and manipulate the list in convenient ways. Specifically, the watchlist should support the following operations:</p>
+<ul>
+<li>Add a movie:</li>
+<ul>
+<li> At the end </li>
+<li> At the begining</li>
+
+<li> At a specific position</li>
+
+</ul>
+<li>Move a movie:</li>
+
+<ul>
+<li> up one position</li>
+<li>down one position</li>
+</ul>
+<li>Remove a movie from the watchlist</li>
+<li>Print the entire watchlist</li>
+<li>Show watchlist duration</li>
+<li>Search a movie by its title in the watchlist</li>
+<li>Read a text file and create a new watchlist</li> --&gt;</ul>
+<p>The structure representing a movie-node will be the following:</p>
+<blockquote>
+<pre>typedef struct _movienode
+{   
+  char title[35];
+  char genre[35];
+  double duration;
+  struct _movienode *next;
+} movieNode;
+</pre>
+</blockquote>
+<p>The user will browse a movie library in order to find movies which can be added to the user's watchlist.</p>
+<h3>The Movie Library</h3>
+<p>The movie library will be implemented using another singly linked list. The user can browse the movie library by searching a particular movie, or by viewing all movies in alphabetical order. The user may choose to add a movie to the user's watchlist, in which case, the movie will be removed from the library and added to the watchlist. If a user removes a movie from his watchlist, the movie is inserted back to the movie library in proper alphabetical order.</p>
+<p><br></p>
+<p>The following operations are supported in the movie library:</p>
+<ul>
+<li>View all movies</li>
+<li>Search by title</li>
+<li>Add movie to watchlist</li>
+</ul>
+<p>At the start of the program, a text file will be read to create the movie library. Each movie will constitute 3 lines in the text file, with each line representing title, genre, and duration, respectively. Your program will have to read this text file and create the movie library by inserting each movie information in to the singly linked list, in alphabetical order.</p>
+<h3>Flow of Operation</h3>
+<p>At the beginning, the program will create a movie library by reading data from a given text file. The name of the text file will be passed as a command line argument. Your program will read information for each movie from the text file and insert them in alphabetical order in a singly linked list. This singly linked list is your movie library. Initially, the user will have an empty watchlist and the movie library. The user's watchlist will also be a singly linked list. The program will present the user a menu, called the watchlist menu.</p>
+<h4>watchlist Menu</h4>
+<p>The watchlist menu will have the following options:</p>
+<ol>
+<li>Print watchlist</li>
+<li>Show duration</li>
+<li>Search by title</li>
+<li>Move a movie up</li>
+<li>Move a movie down</li>
+<li>Remove a movie</li>
+<li> Save watchlist</li>
+<li>Load watchlist</li>
+<li>Go to movie Library</li>
+<li>Quit</li>
+</ol>
+<p>The options 3, 4, 5 and 6 ask the user to input a string as movie title. If the user chooses option 9, " Go to movie Library", then another menu will be diswatched, called the library menu.</p>
+<h4>Library Menu</h4>
+<p>The library menu will have the following options:</p>
+<ol>
+<li>View all movies</li>
+<li>Search by title</li>
+<li>Add a movie to watchlist</li>
+<li>Back to watchlist</li>
+</ol>
+<p>The options 2 and 3 will take the movie title as input from user. If the user choose to add a movie to the watchlist, the program will ask for the title of the movie and it will do similar operations as "Search by title". If the movie is found, a third menu will be diswatched, called Add movie Menu.</p>
+<h4>Add movie Menu</h4>
+<p>This menu will have the following options:</p>
+<ol>
+<li>Add movie to the end</li>
+<li>Add movie at the beginning</li>
+<li>Insert movie at a specific position</li>
+</ol>
+<p>Option 3 will ask the user again to input another non-negative integer value as position. Position values start from 0. If a user enters a negative number as position, the program should ask for a correct value. If the user enter a value larger than the number of movies in the list, then the movie is added to the end of the list. Once a movie has been selected by the user and added to the watchlist, the entire watchlist should be printed with an appropriate message. Then the Library Menu will be diswatched again.</p>
+<h3>Details of Implementation</h3>
+<p>There are two main components in this project- the <strong>watchlist</strong> and the <strong>movie library</strong>. We first describe the implementation of the watchlist.</p>
+<ul>
+<li>The watchlist will be a linked list of structures named <tt>movieNode</tt>, as given above. A pointer to <tt>movieNode</tt> is used to point to the first element in the list" called a <tt>head</tt> pointer. You could setup the initial empty linked list with a dummy node, or by making <tt>head</tt> a NULL pointer— it is a design decision that affects the way you would write the functions for linked list operations, e.g., insertion, deletion, etc.</li>
+<li>A function <strong>createmovieNode()</strong> will take the movie attributes as input parameters and create a <tt>struct</tt> for the movie by allocating memory dynamically. This function returns a pointer to the newly created linked list node, which can be passed to a function called <strong>insertmovie()</strong> as a parameter. This function will insert the new movieNode in to the watchlist, in an appropriate position.</li>
+<li>A function called <strong>printList()</strong> will take the <tt>head</tt> pointer as input and it will traverse each <tt>movieNode</tt> in order. It will print detailed information about each movie as it traverses.</li>
+<li>A function called <strong>computeDuration()</strong> will take the <tt>head</tt> pointer as input and it will traverse each <tt>movieNode</tt> in order. It will sum the duration of all movies in the watchlist and print it to the console.</li>
+<li>Another function, <strong>searchByTitle()</strong> will take a string as input and search the linked list node which has the same title. When a user selects the "Search by title" option, they will be prompted for an input from the console. This input string will be passed to the function and the results will be diswatched. In order to make the search easier, the movie titles are always stored in all capital letters. Also for simplicity, it is guaranteed that each of the movie titles will be unique.</li>
+<li>Another function, called <strong>removemovie()</strong> will take a pointer to the <tt>movieNode</tt> to be removed as input and search for it in the list. If the node is found it is removed from the linked list, and returned by the function. If the node is not found, the function returns NULL.</li>
+<li>You will also need a function called <strong>getNodePosition()</strong> which takes the movie title as input and returns the position (index) of the corresponding movieNode in the linked list, or -1 if the movie is not found. The menu option for "move up" and "move down" can be implemented using the functions described above.</li>
+<li>For each menu option, a separate function should be written which calls the above described functions appropriately and in order, possibly handles any required user-input gracefully, and then diswatchs appropriate messages on the console.</li>
+</ul>
+<!--
+<p>The "Save to file" menu option will call a function, <strong>savewatchlist()</strong>, which writes each movie information from the watchlist in to a file. You will have to design how to specify the file contents, or how to represent each record in a file, in such a way that the watchlist can be reconstructed by reading this file. The "Load from file" menu option will call a function named <strong>loadwatchlist()</strong>, which creates a new watchlist by reading the file. Each time this function is called, it will discard your current watchlist and create a new one. Be sure to watch list out for any memory leaks when discarding the old watchlist. </p> -->
+<p>If the user selects "Go to movie Library", then the second menu is diswatched, which shows operations on the movie library. All of the functionalities in the library can be implemented by using the functions described above (or by implementing close variants of them). Therefore, be sure to test and debug your basic linked list functions thoroughly and carefully— you will have to use these building blocks in order to create more complicated functionalities. If the user selects "Add a movie to watchlist", then the user will be prompted for a name of the movie, and the third menu will be shown. Based on the user's selection, the movie will be removed from the movie library (function removemovie()) and inserted to the watchlist (function insertmovie()) at the appropriate position.</p>
+<p>The exact specification for each required function is given below:</p>
+<ul>
+<li><strong>movieNode *createmovieNode(char *title, char *genre, double duration)</strong><br> Allocates a movie node, initializes it with the input parameters and returns a pointer to it.</li>
+<li><strong>int insertmovie(movieNode *head, movieNode *newNode, int position)</strong><br> Inserts <i>newNode</i> at the specified <i>position</i> of the linked list pointed to by <i>head</i>.</li>
+<li><strong>void printList(movieNode *head)</strong><br> Prints information for each movie from the linked list pointed to by <i>head</i>, in a nice formatted way.</li>
+<li><strong>double computeDuration(movieNode *head)</strong><br> Computes total duration from each movie in the linked list pointed to by <i>head</i>, and returns it.</li>
+<li><strong>movieNode *searchByTitle(movieNode *head, char *search)</strong><br> Takes a search-string called <i>search</i>, and capitalizes it. Then, it traverses the entire linked list starting from <i>head</i>, and returns the node when it find a match. If a match is not found, it returns NULL.</li>
+<li><strong>movieNode *removemovie(movieNode *head, movieNode *remNode)</strong><br> Searches the movieNode pointed to by <i>remNode</i>, and if found, removes it from the linked list. It returns the node that is removed. If the node is not found, it returns NULL.</li>
+<li><strong>int deletemovie(movieNode *head, movieNode *delNode)</strong><br> This function removes the node <i>delNode</i> from the linked list, then deallocates memory for it, saving us from any memory leak. It returns 0 on success, and -1 on failure. It can be implemented by calling removemovie(), and then free() on that node. You can use this function to clean up memory before your program exits.</li>
+<li><strong>int getNodePosition(movieNode&nbsp;*head,&nbsp;char *search)</strong><br> Searches the linked list pointed to by <em>head</em>&nbsp;for the node with title matching the string in <i>search</i>, then returns the <i>position</i> (index number) of the node. Returns -1 if the node is not found.</li>
+<li><strong>int savewatchlist(movieNode *head)</strong><br>
+This function prompts the user for a filename, writes each movieNode from the linked list (<i>head</i>) to the file. It returns 0 on success, and -1 on error.
+</li>
+<li><strong>movieNode *loadwatchlist()</strong><br>
+This function prompts the user for a filename. Then it reads the file in order to obtain information for each movie in the watchlist, and creates the watchlist. The format of the file is left as a design choice. The only requirement is that your program should be able to read a file that was previous written by it using savewatchlist() function. On success, the function returns the head pointer to the new linked list. On error, it returns NULL.
+</li>
+</ul>
+<p>The above functions must be present in your submitted code and they should perform the specified actions.&nbsp;In case of insertmovie(), removemovie() and deletemovie(), you may need to pass a movieNode **head, based on your design choice. Of course, you can (and should) write additional helper functions based on your design.</p>
+<h3>Suggested Steps for Implementation</h3>
+<p>The strategy for implementing this project successfully is based on modularizing the components, and individually test them thoroughly. For every component of your project, we suggest that you write a function, and then test it properly before integrating it with the main project. You may need to write some extra "test code" for this purpose. If you can find bugs early in a standalone module, then it will save you a lot of time that you would have spent debugging the entire project later on.</p>
+<p>Below are the steps that we suggest for implementing this project:</p>
+<ol>
+<li>Start by reading in the given <tt>movie_library.txt</tt> file. In your code, you will write a loop, in which, you will first read 4 lines from the file (information for 1 movie), and then print it on the console in a nice format.</li>
+<li>Write the <strong>createmovieNode()</strong> function which takes the 4 values representing movie information read from the file and creates (allocates) a movieNode structure. Then it returns a pointer to it.</li>
+<li>Write a function <strong>void printmovieInfo(movieNode *movie)</strong> which takes a pointer to the structure and prints the movie information on the console in a nice format. Move some of the code (for printing on console) you wrote in step 1 in to this function.</li>
+<li>Next, we will first create one singly linked list which will hold all the movies in the movie library. Write a function <strong>movieNode *createEmptyList()</strong>, which creates an empty linked list and returns a pointer to its head. Based on your design choice, the head pointer may point to a dummy node, or to NULL.</li>
+<li>Write a function which can append a movieNode to the end of the linked list, call it <strong>appendmovie(movieNode *head, movieNode *newNode)</strong>.</li>
+<li>Write the function, <strong>printList(movieNode *head)</strong>, which traverses the entire linked list, and for each movieNode, it calls the <strong>printmovieInfo()</strong> function for printing movie details.</li>
+<li>Write a similar function, <strong>computeDuration(movieNode *head)</strong>, which traverses the entire linked list, and for each movieNode, it sums up the duration of the movie. Then it returns the summation.</li>
+<li>At this point, we need to focus on testing. Test the above functions thoroughly. Use the input file (<tt>movie_library.txt</tt>) for testing. Every time you modify the list using <strong>appendmovie()</strong> function, print the list to confirm that the changes are correctly applied. Also, use some incorrect values in the input file and make sure your program responds to incorrect input in a proper (graceful) way. Once you are confident about your implementation, take a backup of all your files in the project, and save it somewhere else.</li>
+<li>In the next step, change the <strong>appendmovie()</strong> function such that it can also take an additional integer <i>position as</i> input. Instead of appending a movie to the end of the list, it will insert the movie at a specified <i>position.</i> This is the <strong>insertmovie()</strong> function.</li>
+<li>Test the <strong>insertmovie()</strong> function thoroughly. Use incorrect inputs and show proper error messages.</li>
+<li>At this point, you may want to implement the 3 menus (specified in "flow of operation") and test that you can navigate your menus properly.</li>
+<li>Write the function <strong>searchByTitle()</strong> and test it thoroughly.</li>
+<li>Implement the <strong>removemovie()</strong> function and test it thoroughly.</li>
+<li>Now you have implemented your basic set of arsenal which will allow you to build various functionalities of this project. You can use the <strong>createEmptyList()</strong> function from step 4 to create the user watchlist (empty). You can implement the functionality "Add a movie to watchlist" by creating another function. This function prompts the user for the movie title, then uses <strong>searchByTitle()</strong>, <strong>removemovie()</strong> and <strong>insertmovie()</strong> to fetch a movie node from the movie library to the user watchlist. Test your code thoroughly.</li>
+<li>Implement the <strong>getNodePosition()</strong> function.</li>
+<li>Using <strong>getNodePosition()</strong>, <strong>removemovie()</strong> and <strong>insertmovie()</strong> functions, you can now implement the menu options "move up" and "move down" in the user watchlist. Once you complete that, conduct extensive testing of the functionalities.</li>
+
+<li>The last two functions, <strong>savewatchlist()</strong> and <strong>loadwatchlist()</strong> can be implemented by traversing each movieNode in the watchlist and writing it to file or reading it from file, respectively.</li> --&gt;
+<li>Test your integrated program by navigating the menu options.</li>
+<li>You will also need to implement a function which deletes the entire linked list, so that all dynamically allocated memory can be deallocated. You will need to call this function before your program terminates, in order to avoid memory leaks. You can call it deletemovieList(), or anything you prefer, and it is your choice whether you would want to make use of the deletemovie() function for implementing it.</li>
+</ol>
+<h3>Important Notes</h3>
+<ul>
+<li>Your program should not have any memory leaks. Before your program exits, be sure to deallocate any memory that your program allocates at runtime.</li>
+<li>Your program should be as <i>robust</i> as possible. It should not crash abruptly even if the user inputs incorrect values, or if the input file is misformatted. It should diswatch proper error messages, and allow the user to redo the operation. If the error is unrecoverable, your program should terminate gracefully (e.g, free up any dynamically allocated memory, close any open FILE pointers, etc.)</li>
+<li>You cannot use any global variables.</li>
+<li>Be sure to follow the <i>program style guide</i> when writing your source code.</li>
+</ul>
+<h3>Testing and Submitting</h3>
+<p>Use valgrind to test your code for memory leaks and dangling pointers.</p>
+<p>On zeus, create a directory named Project3_<username>&lt;username&gt;_&lt;labsection&gt;<labsection>. Copy your source files and Makefile to this directory. Change to this directory and create a typescript file showing that you are on zeus, listing your program to the screen, compiling it using the Makefile, and demonstrating a sample interactive run. Change to the parent directory and create a tarfile of your project directory. Name this tarfile Project</labsection></username><username><labsection>3_<username>&lt;username&gt;_&lt;labsection&gt;</username><username><labsection>.tar <br></labsection></username></labsection></username></p>
+<p><username><labsection><username><labsection>Submit this tarfile to Blackboard no later than 11:59 p.m. on Monday, May 2, 2021. </labsection></username></labsection></username></p>
+<p><br></p>
+<h3><b>Update</b></h3>
+<ul>
+<li>4/15/2021 - <b>save watchlist</b> and <b>load watchlist </b>menu options are added</li>
+</ul>
+
+</div></body></html>

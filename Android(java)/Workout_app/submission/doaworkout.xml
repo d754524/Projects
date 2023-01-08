@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="@string/Description_text"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <ListView
+        android:id="@+id/exercisesList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_below="@+id/backbtn" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/backbtn"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="25dp"
+        android:backgroundTint="@color/red"
+        android:gravity="center"
+        android:onClick="back"
+        android:text="End workout"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+
+
+</RelativeLayout>

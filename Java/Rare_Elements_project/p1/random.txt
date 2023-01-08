@@ -1,0 +1,59 @@
+if(numRows > INIT_ROWS) {
+			
+			int diffInRows = numRows-grid.capacity();
+			
+			for(int i=0;i<diffInRows;i++) {
+				DynamicArray e = new DynamicArray(INIT_COLS);
+				grid.add(e);
+				for(int j=0;j<e.capacity();j++) {
+					grid.get(grid.size()-1).set(j, new Empty());
+				}
+				
+				
+			}
+			
+	
+		}
+
+
+
+
+if(numCols > INIT_COLS) {
+			int diffInCols = numCols-INIT_COLS;
+			
+			 for(int i=0;i<diffInCols;i++) {
+					
+					
+					for(int j=0;j<grid.capacity();j++) {
+						if(grid.get(j)==null) {
+							break;
+						}
+						grid.get(j).add(new Empty());
+						
+					} 
+
+
+
+ if(numCols < INIT_COLS) {
+			 
+			 int diffInCols = INIT_COLS-numCols;
+			 int counter=0;
+			 
+			 for(;counter<diffInCols;) {
+					
+					for(int j=0;j>grid.capacity();j++) {
+						
+						
+						grid.get(j).remove(grid.get(j).capacity()-1);
+		
+					} 
+					counter++;
+				} 
+
+		 }
+
+
+	
+				} 
+ 
+		 }

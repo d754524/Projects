@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="History of your visits"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"/>
+
+    <RelativeLayout
+        android:id="@+id/recordList"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@id/title">
+
+        <ListView
+            android:id="@+id/listOfVisits"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/showtotal"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/recordList"
+        android:layout_marginLeft="85dp"
+        android:backgroundTint="@color/black"
+        android:text="Display total"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
+
+    <RelativeLayout
+        android:id="@+id/visitdetails"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@id/recordList"
+        android:layout_marginTop="55dp">
+
+        <TextView
+            android:id="@+id/detail_date"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/detail_restaurant"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@id/detail_date"
+            android:layout_marginLeft="40dp"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/detail_money"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@id/detail_restaurant"
+            android:layout_marginLeft="40dp"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+        <TextView
+            android:id="@+id/detail_review"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@id/detail_money"
+            android:layout_marginLeft="40dp"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/backbtn"
+        android:layout_width="125dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/visitdetails"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/teal"
+        android:onClick="back"
+        android:text="Back to main" />
+
+    <Button
+        android:id="@+id/deleteall"
+        android:layout_width="125dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/visitdetails"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@id/backbtn"
+        android:backgroundTint="@color/red"
+        android:onClick="clearList"
+        android:text="Delete all entries" />
+
+</RelativeLayout>

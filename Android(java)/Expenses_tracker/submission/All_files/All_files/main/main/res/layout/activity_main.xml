@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="Expenses Tracker!"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/map_description"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/title"
+        android:text="Use the static map to see what is around you!"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/openmap"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/title"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/teal"
+        android:text="open Map"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/subtitle"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/openmap"
+        android:text="Record a new visit to a restaurant below!"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <RelativeLayout
+        android:id="@+id/parameters"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_below="@+id/subtitle">
+
+        <TextView
+            android:id="@+id/restaurant"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:text="Restaurant "
+            android:textColor="@color/teal"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/input_restaurant"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="10dp"
+            android:hint="e.g. McDonald's" />
+
+        <TextView
+            android:id="@+id/money"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/restaurant"
+            android:layout_marginTop="20dp"
+            android:text="Money spent "
+            android:textColor="@color/teal"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/input_money"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/input_restaurant"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="17dp"
+            android:hint="e.g. 10" />
+
+        <TextView
+            android:id="@+id/meal"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/money"
+            android:layout_marginTop="20dp"
+            android:text="Meal "
+            android:textColor="@color/teal"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/input_meal"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/input_money"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="22dp"
+            android:hint="e.g. 2 McChicken and fries" />
+
+        <TextView
+            android:id="@+id/review"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/meal"
+            android:layout_marginTop="20dp"
+            android:text="Review "
+            android:textColor="@color/teal"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/input_review"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/input_meal"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="20dp"
+            android:hint="e.g. Fries were old" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/review"
+            android:layout_marginTop="20dp"
+            android:text="Date"
+            android:textColor="@color/teal"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/input_date"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/input_review"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="21dp"
+            android:hint="e.g. 11/25/2022" />
+    </RelativeLayout>
+
+    <android.widget.Button
+        android:id="@+id/history"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/addvisit"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/roundedborder"
+        android:backgroundTint="@color/black"
+        android:onClick="history"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:text="Check history of visits" />
+
+    <android.widget.Button
+        android:id="@+id/addvisit"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/parameters"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/roundedborder"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:onClick="create"
+        android:text="Add new visit" />
+
+</RelativeLayout>

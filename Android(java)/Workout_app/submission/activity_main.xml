@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/work_it"
+        android:textColor="#009999"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/doWorkout"
+        android:onClick="doAWorkOut"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/title"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/silver"
+        android:text="@string/do_a_workout"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/setup"
+
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/doWorkout"
+        android:backgroundTint="@color/silver"
+        android:onClick="editMode"
+        android:text="@string/setup_edit_mode"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+</RelativeLayout>

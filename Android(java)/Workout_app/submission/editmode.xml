@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".editmode">
+
+    <TextView
+        android:id="@+id/direction"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text="Current Exercises (Click an exercise to edit)"
+        android:textSize="15sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addExercise"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/direction"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/roundedbutton"
+        android:onClick="newExercise"
+        android:text="@string/plusSign"
+        android:textSize="40sp" />
+
+
+    <ListView
+        android:id="@+id/mylist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/addExercise"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="25dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/red"
+        android:onClick="back"
+        android:text="Back" />
+
+</RelativeLayout>

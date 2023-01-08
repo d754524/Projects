@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Create a new exercise"
+        android:textSize="23sp" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/title"
+        android:text="Name: " />
+
+    <EditText
+        android:id="@+id/nameText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/title"
+        android:hint="Exercise name?"
+        android:layout_toRightOf="@+id/name" />
+    <TextView
+        android:id="@+id/reps"
+        android:layout_below="@+id/name"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Reps: " />
+
+    <EditText
+        android:id="@+id/repsText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/nameText"
+        android:hint="Number of reps?"
+        android:layout_toRightOf="@+id/reps" />
+    <TextView
+        android:id="@+id/sets"
+        android:layout_below="@+id/reps"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Sets: " />
+
+    <EditText
+        android:id="@+id/setsText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/repsText"
+        android:hint="Number of sets?"
+        android:layout_toRightOf="@+id/sets" />
+    <TextView
+        android:id="@+id/weight"
+        android:layout_below="@+id/sets"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Weight: " />
+
+    <EditText
+        android:id="@+id/weightText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/setsText"
+        android:hint="Wright?"
+        android:layout_toRightOf="@+id/weight" />
+
+    <TextView
+        android:id="@+id/notes"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/weight"
+        android:text="Notes: " />
+
+    <EditText
+        android:id="@+id/notesText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/weightText"
+        android:hint="Any notes?"
+        android:layout_toRightOf="@+id/notes" />
+
+    <Button
+        android:id="@+id/create"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/notesText"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/silver"
+        android:onClick="create"
+        android:text="Add to workout"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:onClick="back"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/create"
+        android:text="cancel"
+        android:backgroundTint="@color/silver"
+        android:textColor="@color/black"
+        android:textSize="17sp"/>
+
+</RelativeLayout>

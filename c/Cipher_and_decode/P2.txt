@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void menu();
+void choice1();
+void choice2();
+void choice3();
+
+int wordCounter=0;
+
+int main()
+{
+
+
+    menu();
+    choice1();
+
+    printf("%d",wordCounter);
+
+}
+
+void menu(){
+printf("1) Read in the name of a text file to use as a cipher key\n2) Create a cipher using the input text file(and save the result to a file)\n3) Decode an existing cipher(prompt user for a file to read containing the cipher text\n4) Exit the program\n");
+}
+
+void choice1(){
+    FILE *fp;
+    char c2[5000][15];
+    char name[40];  //stores name of the file to access
+    char content[75000];  // stores every word of the file
+    int i=0;
+
+    printf("Please enter the name of the text file: ");
+    gets(name);
+    fp = fopen(name,"r+");       //check later
+    if(fp==NULL){
+        printf("\nError: Unable to open file.\n");
+    }
+
+
+
+    while(fscanf(fp,"%s",content)==1){  //Reads formatted input from a file
+        c[wordCounter]=content;
+        puts(content);
+        wordCounter++;              //Counts number of words in the file
+    }
+    i=0;
+    while(1){
+        if(content[i]=='\n'){
+            break;
+        }
+        printf("%c",content[i++]);
+
+    }
+
+}
+void choice2(){
+
+
+
+
+
+}

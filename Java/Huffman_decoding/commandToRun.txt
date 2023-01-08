@@ -1,0 +1,1 @@
+java Huffman.java test-files/in1.txt
